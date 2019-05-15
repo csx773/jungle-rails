@@ -16,6 +16,7 @@ main section.categories-show {
       border:        1px solid #ccc;
       border-radius: 5px;
       padding:       15px;
+      padding-top: 40px;
       padding-bottom: 80px;
       margin-top:    20px;
       // margin:        10px;
@@ -25,6 +26,19 @@ main section.categories-show {
         max-height: 140px;
         margin: auto;
         display: block;
+      }
+
+      header .soldout {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: white;
+        background: rgb(175, 4, 4);
+        padding: 5px;
+        border-top-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        width: 90px;
+        
       }
 
       footer {
