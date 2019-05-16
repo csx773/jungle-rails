@@ -1,1 +1,11 @@
 <h1> Admin : Category page </h1>
+
+<%= link_to 'New category', new_admin_category_path %>
+
+
+  <% @categories.each do |category| %>
+    <ul>
+        <li><%= category.name %> created on: <%= category.created_at %> </li>
+
+    </ul>
+  <% end %>
