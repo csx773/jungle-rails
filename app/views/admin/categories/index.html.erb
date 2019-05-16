@@ -1,10 +1,29 @@
-<h1> Admin : Category page </h1>
 
-<a href="<%= new_admin_category_path %>"><button>Create new category</button></a>
+<section class="admin-products-index">
 
-  <% @categories.each do |category| %>
-    <ul>
-        <li><%= category.name %> created on: <%= category.created_at %> </li>
+  <header class="page-header">
+    <h1>Admin &raquo; All Categories</h1>
+  </header>
 
-    </ul>
-  <% end %>
+  <div class="well">
+    <%= link_to '+ New Category', new_admin_category_path , class: 'btn btn-info' %>
+  </div>
+
+  <div class="panel panel-default products">
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Created Date</th>
+          <th>Updated Date</th>
+        </tr>
+      </thead>
+      <tbody>
+          <%= render @categories %>
+      </tbody>
+    </table>
+
+  </div>
+
+</section>
