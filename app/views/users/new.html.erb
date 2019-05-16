@@ -1,18 +1,34 @@
-<h1>Signup Page</h1>
+<h1>Signup</h1>
 
-<%= form_for :user, url: '/users' do |f| %> First Name: <%= f.text_field :first_name %>
+<%= form_for :user, url: '/users' do |f| %> 
+<p>
+<%= f.label :first_name %><br>
+<%= f.text_field :first_name %>
+</p>
+
+<p>
+<%= f.label :last_name %><br>
+<%= f.text_field :last_name %>
+</p>
+
+<p>
+<%= f.label :email %><br>
+<%= f.text_field :email %>
+</p>
+
+<p>
+<%= f.label :password %><br>
+<%= f.password_field :password %>
+</p>
+
+<p>
+<%= f.label :password_confirmation %><br>
+<%= f.password_field :password_confirmation %>
+</p>
 <br />
-<br />
-Last Name: <%= f.text_field :last_name %>
-<br />
-<br />
-Email: <%= f.text_field :email %>
-<br />
-<br />
-Password: <%= f.password_field :password %>
-<br />
-<br />
-Password Confirmation: <%= f.password_field :password_confirmation %>
-<br />
-<br />
-<%= f.submit "Submit" %> <% end %>
+<%= f.submit "Submit" %> 
+
+<% end %>
+
+
+

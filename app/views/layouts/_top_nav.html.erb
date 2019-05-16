@@ -27,7 +27,7 @@
         </li>
         
           <% if current_user %>
-          <li>  Signed in as <%= current_user.email %> </li>  
+          <li class="current-user-email">  Signed in as <%= current_user.email %> </li>  
           <li> <%= link_to "Logout", '/logout' %> </li>
           <% else %>
           <li>  <%= link_to 'Login', '/login' %> </li> 
