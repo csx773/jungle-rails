@@ -1,7 +1,6 @@
 <h1> Admin : Category page </h1>
 
-<%= link_to 'New category', new_admin_category_path %>
-
+<a href="<%= new_admin_category_path %>"><button>Create new category</button></a>
 
   <% @categories.each do |category| %>
     <ul>
