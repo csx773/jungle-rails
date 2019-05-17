@@ -4,8 +4,8 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h3>Thank you for your order <%= current_user.first_name%>!</h3>
-    <p>Order Email: <%= current_user.email%></p>
+    <h3>Thank you for your order <%= (current_user) ? current_user.first_name : "Guest User"%>!</h3>
+    <p>Order Email: <%= (current_user) ? current_user.email : "guest@example.com"%></p>
 
     <%# Sample from my cart view %>
     <div class="panel panel-default items">
