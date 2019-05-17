@@ -1,10 +1,9 @@
 class UserMailer < ApplicationMailer
-
     default from: 'no-reply@jungle.com'
- 
-    def welcome_email
-      @user = params[:user]
+   
+    def welcome_email(user)
+      @user = user
       @url  = 'http://example.com/login'
-      mail(to: @user.email, subject: 'Welcome to My Awesome Site')
-    end    
-end
+      mail(to: @user.email, subject: 'Welcome to My Jungle Site')
+    end
+  end
