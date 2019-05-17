@@ -1,14 +1,11 @@
 <section class="orders-show">
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
+    <h1>Order Number #<%= @order.id %> </h1>
   </header>
 
   <div class="order-summary jumbotron">
-    <h3>Thank you for your order!</h3>
-    <p>Ordered by: <%= current_user.email%></p>
-    <p>
-      Total amount: $<%= @order.total_cents.to_s[0..3]%>.<%=@order.total_cents.to_s[4..5]%>
-    </p>
+    <h3>Thank you for your order <%= current_user.first_name%>!</h3>
+    <p>Order Email: <%= current_user.email%></p>
 
     <%# Sample from my cart view %>
     <div class="panel panel-default items">
