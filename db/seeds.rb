@@ -21,6 +21,7 @@ end
 
 # Let's do this ...
 
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -132,5 +133,38 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+puts "Re-creating Users ..."
+
+User.destroy_all
+puts "Finished destroying Users table"
+
+User.create!({
+  first_name: "Chris",
+  last_name: "Xiao",
+  email: "christest@gmail.com",
+  password_digest: '1234'
+})
+
+
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+puts "Finished destroying Reviews table"
+
+
+Review.create!({
+  product_id:  11,
+  user_id: 1,
+  description: 'I love this weird thing alot!',
+  rating: 5
+})
+
+Review.create!({
+  product_id:  10,
+  user_id: 1,
+  description: 'This thing is not good.',
+  rating: 2
+})
 
 puts "DONE!"
