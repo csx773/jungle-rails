@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for ordering from Jungle.com, <%= @user.first_name %></h1>
+    <p>
+      You have successfully orded from  www.jungle.com,
+      Your order email is: <%= @user.email %>.<br>
+    </p>
+    <h2> Order details </h2>
+    <p>
+        Order total: <%= @order.total_cents / 100.0 %>
+    </p>
+    <br>
+    <%= line_items.each do |item|%>
+        <h4> Name: <%= item.product.name %></h4>
+        <p> Price: <%= item.product.price %> </p>
+        <p> Quantity: <%= item_item.quantity %></p>
+        <br>
+    <% end%>
+    <p>
+      To visit website, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks you!</p>
+  </body>
+</html>
+

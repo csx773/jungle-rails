@@ -25,7 +25,7 @@ class UsertestsController < ApplicationController
   # POST /usertests.json
   def create
     @user = Usertest.new(params[:user])
- 
+    # respond_to is only for scafolding, not work with real User model
     respond_to do |format|
       if @user.save
         # Tell the UserMailer to send a welcome email after save
