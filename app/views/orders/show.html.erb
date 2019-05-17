@@ -4,7 +4,7 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h3>Thank you for your order!</h3>
     <p>Ordered by: <%= current_user.email%></p>
     <p>
       Total amount: $<%= @order.total_cents.to_s[0..3]%>.<%=@order.total_cents.to_s[4..5]%>
@@ -22,10 +22,7 @@
           </tr>
         </thead>
         <tbody>
-          <%= line_items = LineItem.where(order_id: @order.id) %>
-          <% line_items.each do |item| %> 
-          <%= render 'item', product: item[:product] %> 
-          <% end %>
+          <%= render partial: "orders/line_item", collection: @line_items %> 
         </tbody>
         <tfoot>
           <tr>
