@@ -10,9 +10,6 @@
       Your order email is: <%= @email %>.<br>
     </p>
     <h2> Order details </h2>
-    <p>
-        Order total: $<%= @order.total_cents / 100.0 %>
-    </p>
     <br>
     <%= @line_items.each do |item|%>
         <h4> Name: <%= item.product.name %></h4>
@@ -21,6 +18,9 @@
         <br>
     <% end%>
     <p>
+    <h3>
+        Order total: $<%= @order.total_cents / 100.0 %>
+    </h3>
       To visit website, just follow this link: <%= @url %>.
     </p>
     <p>Thanks you!</p>
