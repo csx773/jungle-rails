@@ -56,6 +56,9 @@
               <span class="glyphicon glyphicon-star"> </span>
             <% end %>
             </dd>
+            <dd>
+              <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+            </dd>
             <br>
             <% end %>
           </dl>
@@ -68,3 +71,4 @@
   </article>
 
 </section>
+
