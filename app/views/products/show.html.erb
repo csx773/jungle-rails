@@ -26,8 +26,24 @@
       </div>
     </div>
 
+    <h3> Reviews </h3>
+    <%= form_for :review, url: product_reviews_path(@product)  do |f| %>
+      <p>
+        <%= f.label :description %> <br>
+        <%= f.text_area :description %>
+      </p>
+
+      <p>
+        <%= f.label :rating %> <br>
+        <%= select_tag "rating", options_for_select([ 1, 2, 3, 4, 5 ]), prompt: "Select..." %>
+      </p>
+
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+
     <div class="row">
-      <h3> Reviews </h3>
       <% if @review %>
         <div class="col-sm-8">
           <dl class="dl-horizontal">
