@@ -56,9 +56,11 @@
               <span class="glyphicon glyphicon-star"> </span>
             <% end %>
             </dd>
+            <% if current_user.id == review.user_id %>
             <dd>
               <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
             </dd>
+            <% end %>
             <br>
             <% end %>
           </dl>
