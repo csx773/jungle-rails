@@ -1,11 +1,11 @@
 <section class="products-show">
-
   <header class="page-header">
-    <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
+    <h1>
+      <%= link_to @product.category.name, @product.category %> &raquo; <%=@product.name %>
+    </h1>
   </header>
 
   <article class="product-detail">
-
     <div class="row">
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
@@ -25,52 +25,54 @@
       </div>
     </div>
 
-
     <div class="row">
-        <div class="col-sm-4">
-          <dl class="dl-verticle">
-          <h3> Reviews </h3>
-          <% if current_user %>
-            <%= form_for @review, url: product_reviews_path(@product)  do |f| %>
-              <div class='form-group'>
-                <dt> Description </dt>
+      <div class="col-sm-4">
+        <dl class="dl-verticle">
+          <h3>Reviews</h3>
+          <% if current_user %> 
+            <%= form_for @review, url:product_reviews_path(@product) do |f| %>
+              <div class="form-group">
+                <dt>Description</dt>
                 <%= f.text_area :description, class:'form-control' %>
               </div>
 
-              <div class='form-group'>
-                <%= f.label :rating %> <br>
-                <%= f.select :rating, %w{ 1 2 3 4 5 }, {:prompt => 'Rate...'} %>            
+              <div class="form-group">
+                <%= f.label :rating %> <br />
+                <%= f.select :rating, %w{ 1 2 3 4 5 }, {:prompt => 'Rate...'} %>
               </div>
 
-              <div class='form-group'>
+              <div class="form-group">
                 <%= f.submit %>
               </div>
-            <% end %>
-          <% end %>
-      <% if @review %>
+            <% end %> 
+          <% end %> 
+
+          <% if @review %> 
             <% @product.reviews.reverse_each do |review| %>
-            <dt> <%= review.user.first_name %> says </dt>
-            <dd> <%= review.description %> </dd>
-            <dt>Rating</dt>
-            <dd><% review.rating.times do %>
-              <span class="glyphicon glyphicon-star"> </span>
+              <dt><%= review.user.first_name %> says</dt>
+              <dd><%= review.description %></dd>
+              <dt>Rating</dt>
+              <dd>
+                <% review.rating.times do %>
+                  <span class="glyphicon glyphicon-star"> </span>
+                <% end %>
+              </dd>
+              <% if current_user %> 
+                <% if current_user.id == review.user_id %>
+                  <dd>
+                    <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+                  </dd>
+                <% end %> 
+              <% end %>
+              <br />
             <% end %>
-            </dd>
-            <% if current_user.id == review.user_id %>
-            <dd>
-              <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
-            </dd>
             <% end %>
-            <br>
-            <% end %>
-          </dl>
-        </div>
-        <% else %>
-        <h4> No reviews yet</h4>
-      <% end %>
-    </div>
-
+          <% if @product.reviews.count == 0 %>
+            <h4>No reviews yet</h4>
+          <% end %>
+        </dl>
+          
+          </div>
+          </div>
   </article>
-
 </section>
-
