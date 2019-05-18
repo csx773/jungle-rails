@@ -47,7 +47,7 @@
           <% end %>
 
       <% if @review %>
-            <% @product.reviews.each do |review| %>
+            <% @product.reviews.reverse_each do |review| %>
             <dt> <%= review.user.first_name %> says </dt>
             <dd> <%= review.description %> </dd>
             <dt>Rating</dt>
