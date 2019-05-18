@@ -7,7 +7,6 @@
   <article class="product-detail">
 
     <div class="row">
-
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
@@ -26,27 +25,28 @@
       </div>
     </div>
 
-    <h3> Reviews </h3>
-    <%= form_for :review, url: product_reviews_path(@product)  do |f| %>
-      <p>
-        <%= f.label :description %> <br>
-        <%= f.text_area :description %>
-      </p>
-
-      <p>
-        <%= f.label :rating %> <br>
-        <%= select_tag "rating", options_for_select([ 1, 2, 3, 4, 5 ]), prompt: "Select..." %>
-      </p>
-
-      <p>
-        <%= f.submit %>
-      </p>
-    <% end %>
 
     <div class="row">
+        <div class="col-sm-4">
+          <dl class="dl-verticle">
+          <h3> Reviews </h3>
+          <%= form_for :review, url: product_reviews_path(@product)  do |f| %>
+            <div class='form-group'>
+              <dt> Description </dt>
+              <%= f.text_area :description, class:'form-control' %>
+            </div>
+
+            <div class='form-group'>
+              <%= f.label :rating %> <br>
+              <%= select_tag "rating", options_for_select([ 1, 2, 3, 4, 5 ]), prompt: "Select..." %>
+            </div>
+
+            <div class='form-group'>
+              <%= f.submit %>
+            </div>
+          <% end %>
+
       <% if @review %>
-        <div class="col-sm-8">
-          <dl class="dl-horizontal">
             <% @product.reviews.each do |review| %>
             <dt> <%= review.user.first_name %> says </dt>
             <dd> <%= review.description %> </dd>
