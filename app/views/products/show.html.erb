@@ -30,7 +30,7 @@
         <div class="col-sm-4">
           <dl class="dl-verticle">
           <h3> Reviews </h3>
-          <%= form_for :review, url: product_reviews_path(@product)  do |f| %>
+          <%= form_for @review, url: product_reviews_path(@product)  do |f| %>
             <div class='form-group'>
               <dt> Description </dt>
               <%= f.text_area :description, class:'form-control' %>
@@ -38,7 +38,7 @@
 
             <div class='form-group'>
               <%= f.label :rating %> <br>
-              <%= select_tag "rating", options_for_select([ 1, 2, 3, 4, 5 ]), prompt: "Select..." %>
+              <%= f.select :rating, %w{ 1 2 3 4 5 }, {:prompt => 'Rate...'} %>            
             </div>
 
             <div class='form-group'>
