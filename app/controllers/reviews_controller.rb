@@ -10,7 +10,10 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        raise "in review destory action"
+        @review = Review.find params[:id]
+        @product = Product.find(params[:product_id])
+        @review.destroy!
+        redirect_to product_path(@product)
     end
 
     private
