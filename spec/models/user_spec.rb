@@ -66,5 +66,56 @@ RSpec.describe User, type: :model do
     end
     
   end
+
+  describe '.authenticate_with_credentials' do
+
+    subject { described_class.create(
+      first_name: 'Ben',
+      last_name: 'Chen',
+      email: 'ben@test.com',
+      password: 'test123',
+      password_confirmation: 'test123'
+    )}
+
+    # examples for this class method here
+    it 'should return user with correct email and password' do
+      user = User.new(
+        first_name: 'Sam',
+        last_name: 'Wong',
+        email: 'sam@test.com',
+        password: 'test111',
+        password_confirmation: 'test111'
+      )
+      user.save!
+      
+      @email = user.email
+      @password = user.password
+
+      expect(User.authenticate_with_credentials(@email, @password).present?).to eq(true)
+
+    end
+    
+    it 'should return nil with incorrect email and correct password' do
+      user = User.new(
+        first_name: 'Sam',
+        last_name: 'Wong',
+        email: 'sam@test.com',
+        password: 'test111',
+        password_confirmation: 'test111'
+      )
+      user.save!
+      
+      @email = user.email
+      @password = 'wrongpass'
+      expect(User.authenticate_with_credentials(@email, @password)).to eq(nil)
+
+    end
+
+    it 'should return nil with correct email and incorrect password' do
+      pending "should return nil with correct email and incorrect password #{__FILE__}"
+
+    end
+  
+  end
   
 end
