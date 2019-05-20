@@ -51,6 +51,20 @@ RSpec.describe User, type: :model do
       expect(subject).to be_valid
     end
 
+    it 'should have password have length >= 3' do
+      @user = User.new(
+        first_name: 'Ben',
+        last_name: 'Chen',
+        email: 'user@test.com',
+        password: 'tes',
+        password_confirmation: 'tes'
+      )
+
+      expect(@user.password.length).to be >= 3
+      expect(@user.password_confirmation.length).to be >= 3
+
+    end
+    
   end
   
 end
