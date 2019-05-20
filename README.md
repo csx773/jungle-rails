@@ -29,8 +29,22 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 
 ## Screenshots
-!["New user"](https://github.com/csx773/react-simple-boilerplate/blob/master/build/screenshots/screenshot-1.png)
 
+!["Home page"](https://github.com/csx773/jungle-rails/blob/master/app/assets/images/screenshots/screenshot-1.png)
+
+!["Cart order"](https://github.com/csx773/jungle-rails/blob/master/app/assets/images/screenshots/screenshot-3.png)
+
+!["credit card"](https://github.com/csx773/jungle-rails/blob/master/app/assets/images/screenshots/screenshot-4.png)
+
+!["Order confirmation"](https://github.com/csx773/jungle-rails/blob/master/app/assets/images/screenshots/Screenshot%20from%202019-05-19%2023-08-18.png)
+
+!["Category page"](https://github.com/csx773/jungle-rails/blob/master/app/assets/images/screenshots/Screenshot%20from%202019-05-19%2023-08-50.png)
+
+!["Admin Products"](https://github.com/csx773/jungle-rails/blob/master/app/assets/images/screenshots/Screenshot%20from%202019-05-19%2023-09-10.png)
+
+!["Admin Category"](https://github.com/csx773/jungle-rails/blob/master/app/assets/images/screenshots/Screenshot%20from%202019-05-19%2023-09-41.png)
+
+!["Product review"](https://github.com/csx773/jungle-rails/blob/master/app/assets/images/screenshots/Screenshot%20from%202019-05-19%2023-11-45.png)
 
 
 ## Stripe Testing
