@@ -69,12 +69,12 @@ RSpec.describe User, type: :model do
 
   describe '.authenticate_with_credentials' do
 
-    subject { described_class.create(
-      first_name: 'Ben',
-      last_name: 'Chen',
-      email: 'ben@test.com',
-      password: 'test123',
-      password_confirmation: 'test123'
+    subject { described_class.create!(
+      first_name: 'Sam',
+      last_name: 'Wong',
+      email: 'sam@test.com',
+      password: 'test111',
+      password_confirmation: 'test111'
     )}
 
     # examples for this class method here
@@ -112,8 +112,35 @@ RSpec.describe User, type: :model do
     end
 
     it 'should return nil with correct email and incorrect password' do
-      pending "should return nil with correct email and incorrect password #{__FILE__}"
+      user = User.new(
+        first_name: 'Sam',
+        last_name: 'Wong',
+        email: 'sam@test.com',
+        password: 'test111',
+        password_confirmation: 'test111'
+      )
+      user.save!
+      
+      @email = 'wrongname@test.com'
+      @password = user.password
 
+      expect(User.authenticate_with_credentials(@email, @password)).to eq(nil)
+
+    end
+
+    it 'should return user with spaces in email input' do
+      subject.email = ' sam@test.com '
+      @password = subject.password
+
+      expect(User.authenticate_with_credentials(subject.email, @password).present?).to eq(true)
+
+    end
+
+    it 'should return user with mixed cases in email input' do
+      subject.email = 'SaM@TesT.coM'
+      @password = subject.password
+
+      expect(User.authenticate_with_credentials(subject.email, @password).present?).to eq(true)
     end
   
   end
