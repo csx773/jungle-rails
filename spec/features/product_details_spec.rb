@@ -25,7 +25,7 @@ RSpec.feature "Navigate to single product details page", type: :feature, js: tru
 
     # DEBUG 
     #  takes screenshot of the page and saves to tmp/capybara
-    sleep 3
+    sleep 2
     save_screenshot
     # puts the page.html from test to console ONLY
     # puts page.html
